@@ -58,20 +58,16 @@ async postLogin(credenciales : Credencial): Promise<any>{
 Luego si queremos hacer peticiones en las que pasamos la credencial creamos un header de tipo athorization y lo ponemos ahí:
 
 Primero debemos obtener el token:
-
-```typescript
-token = sessionStorage.getItem("token");
-```
-
 Luego lo usamos:
 
 ```typescript
 async obtenerPerfil() : Promise<Empleado>{
-  //creamos un objeto header para el type
-  let header= new HttpHeaders().set("authorization", "bearer "+ this.token);
-  let endpoint= "api/Empleados/PerfilEmpleado";
-  return firstValueFrom(
-     this._http.get<Empleado>(this.url+endpoint, {headers: header})
-  )
-}
+        const token = sessionStorage.getItem("token");
+        //creamos un objeto header para el type
+        let header= new HttpHeaders().set("authorization", "bearer "+ token);
+        let endpoint= "api/Empleados/PerfilEmpleado";
+        return firstValueFrom(
+            this._http.get<Empleado>(this.url+endpoint, {headers: header})
+        )
+    }
 ```
