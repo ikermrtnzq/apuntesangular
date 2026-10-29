@@ -71,3 +71,12 @@ async obtenerPerfil() : Promise<Empleado>{
         )
     }
 ```
+
+Si queremos cerrar la sesión:
+
+```typescript
+logOut() : void {
+    sessionStorage.removeItem("token");
+    this._router.navigate(["/"])
+  }
+```
