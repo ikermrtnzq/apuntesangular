@@ -14,6 +14,7 @@ Instalar el paquete indicado en los apuntes:
 
 ```bash
 npm.cmd install @angular/animations@^21
+npm.cmd install ngx-toastr
 ```
 
 Crear un interceptor:
